@@ -12,7 +12,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: ccistaging/android:api-30
+    - image: circleci/android:api-29-node
     steps:
     # Machine Setup
     - checkout
