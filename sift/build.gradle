@@ -28,7 +28,8 @@ android {
     // keep in mind that we are still writing for Java 6 (so no try-with
     // resources).
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     lintOptions {
