@@ -1,6 +1,7 @@
 package siftscience.android;
 
 
+import android.util.Base64;
 
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
 import com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder;
@@ -19,8 +20,6 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
@@ -173,8 +172,8 @@ public class UploaderTest {
     }
 
     private MappingBuilder makeCall(int code) throws Exception {
-        String encodedBeaconKey = Base64.getEncoder().encodeToString(
-                BEACON_KEY.getBytes(StandardCharsets.US_ASCII));
+        String encodedBeaconKey = Base64.encodeToString(
+                BEACON_KEY.getBytes("ASCII"), Base64.NO_WRAP);
 
         return WireMock.put(WireMock.urlEqualTo(requestPath))
                 .withHeader("Accept", WireMock.equalTo("application/json"))
